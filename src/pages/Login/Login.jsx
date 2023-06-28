@@ -1,10 +1,14 @@
 import React from 'react';
 import { Field, Formik, Form, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import operations from 'redux/auth/operations';
 
 export default function Login() {
-  const handleSubmit = (values, { resetForm }) => {
-    console.log('values: ', values);
+  const dispatch = useDispatch();
+  const handleSubmit = ({ email, password }, { resetForm }) => {
+    dispatch(operations.logIn({ email, password }));
     resetForm();
   };
 
@@ -35,7 +39,8 @@ export default function Login() {
           <Field type="password" name="password" />
           <ErrorMessage name="password" component="div"></ErrorMessage>
         </label>
-        <button type="submit">Sign In</button>
+        <button type="submit">Log In</button>
+        <Link to="/register">Don't have an account. Sign Up </Link>
       </Form>
     </Formik>
   );

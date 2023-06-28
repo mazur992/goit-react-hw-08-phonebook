@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
-import { contactSelector } from 'redux/selectors';
+import { contactSelector } from 'redux/contacts/selectors';
 import { Report } from 'notiflix';
 
 import { useDispatch, useSelector } from 'react-redux';
 import css from './ContactForm.module.css';
-import { addContact } from 'redux/thunk';
+import { addContact } from 'redux/contacts/thunk';
 
 export default function ContactForm() {
   const { contacts } = useSelector(contactSelector);

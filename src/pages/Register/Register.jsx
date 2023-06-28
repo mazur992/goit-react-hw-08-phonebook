@@ -1,20 +1,30 @@
 import React from 'react';
 import { Field, Formik, Form, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import operations from 'redux/auth/operations';
 
 export default function Register() {
-  const handleSubmit = (values, { resetForm }) => {
-    console.log('values: ', values);
+  const dispatch = useDispatch();
+  const handleSubmit = ({ name, email, password }, { resetForm }) => {
+    dispatch(
+      operations.register({
+        name,
+        email,
+        password,
+      })
+    );
     resetForm();
   };
 
   const initialValues = {
-    login: '',
+    name: '',
     email: '',
     password: '',
   };
   const schema = object({
-    login: string().required(),
+    name: string().required(),
     email: string().required(),
     password: string().min(6).max(12).required(),
   });
@@ -27,10 +37,10 @@ export default function Register() {
       <Form autoComplete="off">
         <h2>Registration</h2>
 
-        <label htmlFor="login">
-          Login
-          <Field type="login" name="login" />
-          <ErrorMessage name="login" component="div"></ErrorMessage>
+        <label htmlFor="name">
+          Name
+          <Field type="name" name="name" />
+          <ErrorMessage name="name" component="div"></ErrorMessage>
         </label>
         <label htmlFor="email">
           Email
@@ -43,6 +53,7 @@ export default function Register() {
           <ErrorMessage name="password" component="div"></ErrorMessage>
         </label>
         <button type="submit">Sign In</button>
+        <Link to="/login">Already registered? Sign In </Link>
       </Form>
     </Formik>
   );
