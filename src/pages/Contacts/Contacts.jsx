@@ -15,7 +15,8 @@ export default function Contacts() {
         alignItems: 'center',
       }}
     >
-      <div className={css.appContainer}>
+      Contacts
+      {/* <div className={css.appContainer}>
         <div>
           <h1 className={css.title}>Phonebook</h1>
           <ContactForm />
@@ -25,7 +26,7 @@ export default function Contacts() {
           <Filter />
           <ContactList />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
