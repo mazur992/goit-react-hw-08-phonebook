@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import AppBar from './AppBar';
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
+import { AppContainer } from './App.styled';
 
 const Home = lazy(() => import('../pages/Home/Home'));
 const Register = lazy(() => import('../pages/Register/Register'));
@@ -18,7 +19,7 @@ export function App() {
     dispatch(operations.fetchCurrentUser());
   });
   return (
-    <>
+    <AppContainer>
       <header>
         <AppBar></AppBar>
       </header>
@@ -29,7 +30,7 @@ export function App() {
             <Route
               path="/register"
               element={
-                <RestrictedRoute component={Register} redirectTo="/contacts" />
+                <RestrictedRoute component={Register} redirectTo="/login" />
               }
             />
             <Route
@@ -44,13 +45,10 @@ export function App() {
                 <PrivateRoute component={Contacts} redirectTo="/login" />
               }
             />
-            {/* <PrivateRoute path="/contacts">
-              <Contacts />
-            </PrivateRoute> */}
             <Route path="*" element={<Home />} />
           </Routes>
         </Suspense>
       </main>
-    </>
+    </AppContainer>
   );
 }

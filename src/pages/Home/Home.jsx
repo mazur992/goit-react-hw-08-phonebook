@@ -1,5 +1,6 @@
 import React from 'react';
+import { HomePage } from 'components/App.styled';
 
 export default function Home() {
-  return <div>Home</div>;
+  return <HomePage></HomePage>;
 }

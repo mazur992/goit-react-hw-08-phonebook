@@ -4,8 +4,7 @@ import {
   selectVisibleContacts,
 } from 'redux/contacts/selectors';
 import css from './ContactList.module.css';
-import { useEffect } from 'react';
-import { deleteContact, fetchContactsThunk } from '../../redux/contacts/thunk';
+import operationsContacts from 'redux/contacts/contactsOperation';
 
 const ContactList = () => {
   const dispatch = useDispatch();
@@ -13,12 +12,8 @@ const ContactList = () => {
   const visibleContacts = useSelector(selectVisibleContacts);
 
   const delContact = contactId => {
-    dispatch(deleteContact(contactId));
+    dispatch(operationsContacts.deleteContacts(contactId), [dispatch]);
   };
-
-  useEffect(() => {
-    dispatch(fetchContactsThunk());
-  }, [dispatch]);
 
   return (
     <ul>
@@ -26,7 +21,7 @@ const ContactList = () => {
       {visibleContacts.map(item => {
         return (
           <li className={css.contactItem} key={item.id}>
-            {item.name}: {item.phone}
+            {item.name}: {item.number}
             <button
               className={css.contactBtn}
               type="button"

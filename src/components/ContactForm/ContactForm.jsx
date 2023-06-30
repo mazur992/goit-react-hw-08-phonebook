@@ -5,9 +5,10 @@ import { Report } from 'notiflix';
 
 import { useDispatch, useSelector } from 'react-redux';
 import css from './ContactForm.module.css';
-import { addContact } from 'redux/contacts/thunk';
+import operationsContacts from 'redux/contacts/contactsOperation';
 
 export default function ContactForm() {
+  const dispatch = useDispatch();
   const { contacts } = useSelector(contactSelector);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -32,13 +33,12 @@ export default function ContactForm() {
       Report.info(name + ' Is already in contacts!');
       return;
     }
-    dispatch(addContact(name, number));
+    dispatch(operationsContacts.createContacts({ name, number }));
     setName('');
     setNumber('');
   };
   let nameId = nanoid();
   let numberId = nanoid();
-  const dispatch = useDispatch();
   return (
     <form onSubmit={handleSubmit} number={number} name={name}>
       <label className={css.formLabel} htmlFor={nameId}>
