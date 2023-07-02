@@ -10,6 +10,9 @@ export const UserMenuStyle = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+  & button:hover {
+    transform: scale(1.1);
+  }
 `;
 export const HomePage = styled.div`
   height: calc(90vh);
@@ -18,6 +21,23 @@ export const HomePage = styled.div`
   background-image: url('https://cdn.pixabay.com/photo/2018/01/31/07/36/secret-3120483_1280.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  & .containerTitle {
+    transform: translateY(30vh);
+    justify-content: center;
+    display: flex;
+    gap: 20px;
+  }
+  & h1 {
+    color: white;
+    font-size: 170px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  & span {
+    color: white;
+
+    font-size: 170px;
+    color: rgba(255, 255, 255, 0.5);
+  }
 `;
 export const HomeStyle = styled.div`
   & header {
@@ -81,5 +101,90 @@ export const ContainerLoginForm = styled.div`
     background-color: #5995ef;
     color: #fff;
     border-radius: 10px;
+  }
+`;
+export const ContactFormStyle = styled.div`
+  & .formLabel {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  & .formInput {
+    display: block;
+    margin-top: 5px;
+    width: 200px;
+    height: 25px;
+    border-color: cadetblue;
+    border-radius: 5px;
+  }
+  & .formBtn {
+    height: 25px;
+    width: 100px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: dodgerblue;
+    transition: background-color 250ms linear, color 250ms linear;
+    cursor: pointer;
+  }
+  & .formBtn:hover {
+    background-color: blue;
+    color: #fff;
+  }
+`;
+export const ContactListStyle = styled.div`
+  & .contactItem {
+    font-size: 15px;
+    text-align: end;
+  }
+  & .contactBtn {
+    height: 25px;
+    width: 60px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: dodgerblue;
+    transition: background-color 250ms linear, color 250ms linear;
+    cursor: pointer;
+  }
+  & .contactBtn:hover {
+    background-color: blue;
+    color: #fff;
+  }
+`;
+export const FilterStyle = styled.div`
+  & .filtrTitle {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  & .filterInput {
+    display: block;
+    margin-top: 5px;
+    width: 200px;
+    height: 25px;
+    border-color: cadetblue;
+    border-radius: 5px;
+  }
+`;
+export const ContactsStyle = styled.div`
+  & .contactsContainer {
+    display: flex;
+    gap: 150px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 20px;
+    height: 50vh;
+    overflow: scroll;
+  }
+  & .contactsContainer::-webkit-scrollbar {
+    width: 0;
+  }
+  & .title {
+    margin-bottom: 20px;
+  }
+  & .subtitle {
+    margin-bottom: 15px;
   }
 `;

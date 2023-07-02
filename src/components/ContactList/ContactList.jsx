@@ -3,7 +3,7 @@ import {
   contactSelector,
   selectVisibleContacts,
 } from 'redux/contacts/selectors';
-import css from './ContactList.module.css';
+import { ContactListStyle } from 'components/App.styled';
 import operationsContacts from 'redux/contacts/contactsOperation';
 
 const ContactList = () => {
@@ -16,23 +16,25 @@ const ContactList = () => {
   };
 
   return (
-    <ul>
-      {contacts.isLoading && <p>Loading...</p>}
-      {visibleContacts.map(item => {
-        return (
-          <li className={css.contactItem} key={item.id}>
-            {item.name}: {item.number}
-            <button
-              className={css.contactBtn}
-              type="button"
-              onClick={() => delContact(item.id)}
-            >
-              Delete
-            </button>
-          </li>
-        );
-      })}
-    </ul>
+    <ContactListStyle>
+      <ul>
+        {contacts.isLoading && <p>Loading...</p>}
+        {visibleContacts.map(item => {
+          return (
+            <li className="contactItem" key={item.id}>
+              {item.name}: {item.number}
+              <button
+                className="contactBtn"
+                type="button"
+                onClick={() => delContact(item.id)}
+              >
+                Delete
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    </ContactListStyle>
   );
 };
 export default ContactList;
