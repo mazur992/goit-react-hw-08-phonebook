@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+
 export const AppContainer = styled.div`
   height: 100vh;
   padding: 5px;
@@ -21,6 +23,7 @@ export const HomePage = styled.div`
   background-image: url('https://cdn.pixabay.com/photo/2018/01/31/07/36/secret-3120483_1280.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+
   & .containerTitle {
     transform: translateY(30vh);
     justify-content: center;
@@ -28,15 +31,28 @@ export const HomePage = styled.div`
     gap: 20px;
   }
   & h1 {
+    font-size: 32px;
+
     color: white;
-    font-size: 170px;
     color: rgba(255, 255, 255, 0.5);
+    @media screen and (min-width: 768px) {
+      font-size: 90px;
+    }
+    @media screen and (min-width: 1200px) {
+      font-size: 170px;
+    }
   }
   & span {
+    font-size: 32px;
     color: white;
 
-    font-size: 170px;
     color: rgba(255, 255, 255, 0.5);
+    @media screen and (min-width: 768px) {
+      font-size: 90px;
+    }
+    @media screen and (min-width: 1200px) {
+      font-size: 170px;
+    }
   }
 `;
 export const HomeStyle = styled.div`
@@ -170,13 +186,15 @@ export const FilterStyle = styled.div`
 `;
 export const ContactsStyle = styled.div`
   & .contactsContainer {
-    display: flex;
-    gap: 150px;
-    padding: 30px;
     background-color: #fff;
     border-radius: 20px;
     height: 50vh;
     overflow: scroll;
+    @media screen and (min-width: 768px) {
+      display: flex;
+      gap: 150px;
+      padding: 30px;
+    }
   }
   & .contactsContainer::-webkit-scrollbar {
     width: 0;
@@ -186,5 +204,17 @@ export const ContactsStyle = styled.div`
   }
   & .subtitle {
     margin-bottom: 15px;
+  }
+`;
+export const StyledLink = styled(NavLink)`
+  display: inline-block;
+  margin-right: 15px;
+  margin-bottom: 5px;
+  color: black;
+  font-weight: 700;
+  font-size: 18px;
+
+  &.active {
+    color: tomato;
   }
 `;

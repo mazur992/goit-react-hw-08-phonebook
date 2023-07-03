@@ -7,12 +7,17 @@ import { ContactsStyle } from 'components/App.styled';
 //
 import operationsContacts from 'redux/contacts/contactsOperation';
 import { useDispatch } from 'react-redux';
+// import operations from 'redux/auth/operations';
 
 export default function Contacts() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(operationsContacts.getContacts());
+    // .unwrap()
+    // .catch(() => {
+    //   operations.logOut();
+    // });
   }, [dispatch]);
   return (
     <ContactsStyle>

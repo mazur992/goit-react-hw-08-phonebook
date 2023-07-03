@@ -51,11 +51,13 @@ const fetchCurrentUser = createAsyncThunk(
     }
 
     token.set(persistedToken);
+
     try {
       const { data } = await axios.get('/users/current');
       return data;
     } catch (error) {
-      console.log('Error!');
+      thunkAPI.dispatch(logOut());
+      console.log('Error! auth/refresh');
     }
   }
 );

@@ -1,22 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getAuthIsLoggedIn } from '../redux/auth/authSelectors';
-import { NavLink } from 'react-router-dom';
 
 import UserMenu from 'components/UserMenu/UserMenu';
 import AuthNav from 'components/authNav';
 
-import { HomeStyle } from 'components/App.styled';
-
-const styles = {
-  link: {
-    display: 'inline-block',
-    textDecoration: 'none',
-    padding: 12,
-    fontWeight: 700,
-    color: '#2A363B',
-  },
-};
+import { HomeStyle, StyledLink } from 'components/App.styled';
 
 export default function AppBar() {
   const isLoggedIn = useSelector(getAuthIsLoggedIn);
@@ -24,12 +13,8 @@ export default function AppBar() {
     <HomeStyle>
       <header>
         <div>
-          <NavLink to="/home" style={styles.link}>
-            Home
-          </NavLink>
-          <NavLink to="/contacts" style={styles.link}>
-            Contacts
-          </NavLink>
+          <StyledLink to="/home">Home</StyledLink>
+          <StyledLink to="/contacts">Contacts</StyledLink>
         </div>
 
         {isLoggedIn ? <UserMenu /> : <AuthNav />}

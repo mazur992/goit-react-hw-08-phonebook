@@ -1,25 +1,11 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-
-const styles = {
-  link: {
-    display: 'inline-block',
-    textDecoration: 'none',
-    padding: 12,
-    fontWeight: 700,
-    color: '#2A363B',
-  },
-};
+import { StyledLink } from 'components/App.styled';
 
 export default function AuthNav() {
   return (
     <div>
-      <NavLink to="/register" style={styles.link}>
-        Register
-      </NavLink>
-      <NavLink to="/login" style={styles.link}>
-        Login
-      </NavLink>
+      <StyledLink to="/register">Register</StyledLink>
+      <StyledLink to="/login">Login</StyledLink>
     </div>
   );
 }
