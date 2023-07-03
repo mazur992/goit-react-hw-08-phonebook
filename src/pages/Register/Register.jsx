@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import operations from 'redux/auth/operations';
 import { ContainerRegisterForm } from 'components/App.styled';
+import Button from '@mui/material/Button';
 
 export default function Register() {
   const dispatch = useDispatch();
@@ -54,7 +55,9 @@ export default function Register() {
             <Field type="password" name="password" />
             <ErrorMessage name="password" component="div"></ErrorMessage>
           </label>
-          <button type="submit">Sign In</button>
+          <Button type="submit" variant="contained">
+            Sign In
+          </Button>
           <Link to="/login">Already registered? Sign In </Link>
         </Form>
       </Formik>
